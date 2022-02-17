@@ -2,6 +2,8 @@ import express from 'express'
 import NeDB from 'nedb'
 import path from 'path'
 
+const PORT = process.env.PORT || 3000
+
 const app = express()
 const db = new NeDB({ filename: path.join(__dirname, 'users.db'), autoload: true })
 
@@ -48,4 +50,4 @@ app.delete('/user/:id', (request, response) => {
     })
 })
 
-app.listen(3000, () => console.log('Server run: http://localhost:3000/'))
+app.listen(PORT, () => console.log(`Server run: http://localhost:${PORT}/`))
